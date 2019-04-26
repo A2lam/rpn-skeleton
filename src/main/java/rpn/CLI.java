@@ -1,5 +1,7 @@
 package rpn;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -13,6 +15,20 @@ public class CLI {
     }
 
     static long evaluate(String expression) {
-        return 0;
+        String[] expr = expression.split(" ");
+        long result = 0;
+
+        for (int i = 0; i < expr.length; i++)
+        {
+            if (expr[i].equals("+"))
+            {
+                result += (Long.valueOf(expr[i - 1]) + Long.valueOf(expr[i - 2]));
+            }
+        }
+
+        if (expr.length == 1)
+            return Long.valueOf(expression);
+        else
+            return result;
     }
 }
