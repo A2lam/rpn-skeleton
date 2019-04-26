@@ -23,6 +23,11 @@ public class CLITest {
     }
 
     @Test
+    public void should_evaluate_simple_multiplication() {
+        assertThat(evaluate("3 5 *")).isEqualTo(15);
+    }
+
+    @Test
     public void should_evaluate_more_complex_addition() {
         assertThat(evaluate("2 3 5 + +")).isEqualTo(10);
     }
